@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunktweets_test=self.webpackChunktweets_test||[]).push([[225],{225:function(e,n,t){t.r(n),t.d(n,{default:function(){return l}});var i,r=t(168),s=t(934).Z.h1(i||(i=(0,r.Z)(["\n  text-align: center;\n  max-width: 470px;\n  margin: auto;\n"]))),a=t(184),l=function(){return(0,a.jsx)("main",{children:(0,a.jsx)("div",{children:(0,a.jsxs)(s,{children:[" ","Follow your favorite tweets"," ",(0,a.jsx)("span",{role:"img","aria-label":"Greeting icon",children:"\ud83d\udc81\u200d\u2640\ufe0f"})]})})})}}}]);
+//# sourceMappingURL=225.e3c48c0f.chunk.js.map
