@@ -1,16 +1,9 @@
-import { UserCard } from "Components/UserCard/UserCard";
+import { UserCardList } from "Components/UserCardList/UserCardList";
 
 const Tweets = () => {
   return (
     <main>
-      <div>
-        {" "}
-        Follow your favorite tweets{" "}
-        <span role="img" aria-label="Greeting icon">
-          💁‍♀️
-        </span>
-        <UserCard />
-      </div>
+      <UserCardList />
     </main>
   );
 };
