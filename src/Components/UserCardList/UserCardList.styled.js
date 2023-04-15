@@ -1,4 +1,7 @@
 import styled from "@emotion/styled";
-export const CardList = styled.ul``;
+export const CardList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+`;
 export const CardListItem = styled.li``;
-// s8123 x45 y34

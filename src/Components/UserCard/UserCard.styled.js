@@ -79,6 +79,7 @@ export const Text = styled.p`
   color: #ebd8ff;
 `;
 export const FollowBtn = styled.button`
+  cursor: pointer;
   padding: 14px 28px;
   width: 196px;
   font-family: "Montserrat";
@@ -94,4 +95,12 @@ export const FollowBtn = styled.button`
   border-radius: 10px;
   outline: none;
   border: none;
+  transition: background-color 0.25s ease;
+  &:hover {
+    background: orangered;
+  }
+  &.following {
+    background: #5cd3a8;
+    box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
+  }
 `;

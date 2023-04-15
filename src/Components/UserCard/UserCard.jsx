@@ -13,7 +13,14 @@ import {
 import TopPicture from "../../images/topImg.webp";
 import LogoImg from "../../images/Logo.webp";
 
-export const UserCard = () => {
+export const UserCard = ({
+  tweets,
+  followers,
+  id,
+  avatar,
+  isFollowing,
+  change,
+}) => {
   return (
     <MainBox>
       <TopBox>
@@ -23,14 +30,20 @@ export const UserCard = () => {
       <MiddleBox>
         <AvatarBox>
           <Ring>
-            <Avatar src="https://robohash.org/121?size=62x62" alt="avatar" />
+            {/* <Avatar src="https://robohash.org/121?size=62x62" alt="avatar" /> */}
+            <Avatar src={avatar} alt="avatar" />
           </Ring>
         </AvatarBox>
       </MiddleBox>
       <BottomBox>
-        <Text> 777 tweets</Text>
-        <Text>100,500 Followers</Text>
-        <FollowBtn>Follow</FollowBtn>
+        <Text>{tweets} Tweets</Text>
+        <Text>{followers.toLocaleString()} Followers</Text>
+        <FollowBtn
+          className={isFollowing ? "following" : ""}
+          onClick={() => change(id)}
+        >
+          {isFollowing ? "Following" : "Follow"}
+        </FollowBtn>
       </BottomBox>
     </MainBox>
   );
