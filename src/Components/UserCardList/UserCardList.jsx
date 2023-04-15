@@ -1,15 +1,16 @@
 import axios from "axios";
-
+import { useEffect, useState } from "react";
 import { UserCard } from "Components/UserCard/UserCard";
 import { CardList, CardListItem } from "./UserCardList.styled";
-import { useEffect, useState } from "react";
-
-axios.defaults.baseURL = "https://64399663bd3623f1b9a3d3b6.mockapi.io/tweets";
+import { updateUser } from "api/api";
 
 export const UserCardList = () => {
   const [userList, setUserList] = useState([]);
+  //   const [update, setUpdate] = useState(false);
+  //   const [page, setPage] = useState(1);
 
   useEffect(() => {
+    let cards = JSON.parse(localStorage.getItem("cards"));
     const controller = new AbortController();
     async function fetchUsers() {
       try {
@@ -20,12 +21,17 @@ export const UserCardList = () => {
             limit: 9,
           },
         });
-        setUserList(response.data);
+        console.log(response);
+        localStorage.setItem("cards", JSON.stringify(response.data));
+        setUserList(JSON.parse(localStorage.getItem("cards")));
       } catch (error) {
         console.log(error);
       }
     }
-    fetchUsers();
+    if (!cards) {
+      fetchUsers();
+    }
+    setUserList(JSON.parse(localStorage.getItem("cards")));
     return () => {
       controller.abort();
     };
@@ -45,14 +51,19 @@ export const UserCardList = () => {
     userList.splice(index, 1, user);
     const newList = [...userList];
     setUserList(newList);
+    localStorage.setItem("cards", JSON.stringify(userList));
+    updateUser(user);
   }
-  // async function updateList(list)
-  //   useEffect(() => {
-  //     setUserList(newList);
-  //   }, [newList]);
+
+  // useEffect(() => {
+  //     async function updateUsers
+  //     if (update) {
+
+  //   }
+  // }, [update]);
   return (
     <CardList>
-      {userList.length > 0 ? (
+      {userList ? (
         userList.map((user) => {
           return (
             <CardListItem key={user.id}>
