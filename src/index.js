@@ -4,6 +4,8 @@ import { BrowserRouter } from "react-router-dom";
 import "./main.css";
 import App from "./Components/App/App";
 import reportWebVitals from "./reportWebVitals";
+import "./fonts/Montserrat-Medium.ttf";
+import "./fonts/Montserrat-SemiBold.ttf";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

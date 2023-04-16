@@ -14,6 +14,7 @@ export const MainBox = styled.div`
 export const TopBox = styled.div`
   position: relative;
   padding: 28px 36px 18px;
+  display: flex;
 `;
 export const Logo = styled.img`
   position: absolute;
@@ -72,11 +73,27 @@ export const BottomBox = styled.div`
   text-align: center;
 `;
 export const Text = styled.p`
+  font-family: "Montserrat";
   font-size: 20px;
   font-weight: 500;
-  line-height: 1.22;
+  line-height: 1.2;
   text-transform: uppercase;
   color: #ebd8ff;
+  &.top {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  &.bottom {
+    margin-top: 16px;
+    margin-bottom: 26px;
+  }
+  &.loading {
+    text-align: center;
+    font-weight: 500;
+    font-size: 24px;
+    text-transform: capitalize;
+    color: #373737;
+  }
 `;
 export const FollowBtn = styled.button`
   cursor: pointer;
@@ -86,7 +103,7 @@ export const FollowBtn = styled.button`
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
-  line-height: 1.2;
+  line-height: 1.22;
   text-transform: uppercase;
   color: #373737;
   text-align: center;

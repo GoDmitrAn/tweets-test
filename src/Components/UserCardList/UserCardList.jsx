@@ -1,15 +1,25 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { UserCard } from "Components/UserCard/UserCard";
-import { CardList, CardListItem } from "./UserCardList.styled";
-import { updateUser } from "api/api";
+import {
+  CardList,
+  CardListItem,
+  LoadMoreBtn,
+  TopPanel,
+} from "./UserCardList.styled";
+import { loadUsers, updateUser } from "api/api";
+import { IoMdArrowRoundBack } from "react-icons/io";
+import { Text } from "Components/UserCard/UserCard.styled";
 
 export const UserCardList = () => {
   const [userList, setUserList] = useState([]);
-  //   const [update, setUpdate] = useState(false);
-  //   const [page, setPage] = useState(1);
+  const [page, setPage] = useState(1);
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     let cards = JSON.parse(localStorage.getItem("cards"));
     const controller = new AbortController();
     async function fetchUsers() {
@@ -21,7 +31,7 @@ export const UserCardList = () => {
             limit: 9,
           },
         });
-        console.log(response);
+
         localStorage.setItem("cards", JSON.stringify(response.data));
         setUserList(JSON.parse(localStorage.getItem("cards")));
       } catch (error) {
@@ -31,7 +41,8 @@ export const UserCardList = () => {
     if (!cards) {
       fetchUsers();
     }
-    setUserList(JSON.parse(localStorage.getItem("cards")));
+    setUserList(JSON.parse(localStorage.getItem("cards")) || []);
+    setIsLoading(false);
     return () => {
       controller.abort();
     };
@@ -54,33 +65,51 @@ export const UserCardList = () => {
     localStorage.setItem("cards", JSON.stringify(userList));
     updateUser(user);
   }
+  async function loadMore() {
+    if (page < 5) {
+      setPage(page + 1);
+      const newUsers = await loadUsers(page + 1);
+      const newList = [...userList, ...newUsers];
+      setUserList(newList);
+      localStorage.setItem("cards", JSON.stringify(newList));
+    }
+  }
 
-  // useEffect(() => {
-  //     async function updateUsers
-  //     if (update) {
-
-  //   }
-  // }, [update]);
   return (
-    <CardList>
-      {userList ? (
-        userList.map((user) => {
-          return (
-            <CardListItem key={user.id}>
-              <UserCard
-                tweets={user.tweets}
-                followers={user.followers}
-                id={user.id}
-                avatar={user.avatar}
-                isFollowing={user.isFollowing}
-                change={subscribeChange}
-              />
-            </CardListItem>
-          );
-        })
-      ) : (
-        <p>Loading ....</p>
+    <>
+      <TopPanel>
+        <LoadMoreBtn
+          className="backBtn"
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          <IoMdArrowRoundBack />
+        </LoadMoreBtn>
+      </TopPanel>
+      {isLoading && <Text className="loading">Loading ....</Text>}
+      <CardList>
+        {userList &&
+          userList.map((user) => {
+            return (
+              <CardListItem key={user.id}>
+                <UserCard
+                  tweets={user.tweets}
+                  followers={user.followers}
+                  id={user.id}
+                  avatar={user.avatar}
+                  isFollowing={user.isFollowing}
+                  change={subscribeChange}
+                />
+              </CardListItem>
+            );
+          })}
+      </CardList>
+      {!isLoading && userList.length < 45 && (
+        <LoadMoreBtn className="loadMore" onClick={loadMore}>
+          Load more
+        </LoadMoreBtn>
       )}
-    </CardList>
+    </>
   );
 };

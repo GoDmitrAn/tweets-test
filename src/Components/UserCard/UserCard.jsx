@@ -36,8 +36,8 @@ export const UserCard = ({
         </AvatarBox>
       </MiddleBox>
       <BottomBox>
-        <Text>{tweets} Tweets</Text>
-        <Text>{followers.toLocaleString()} Followers</Text>
+        <Text className="top">{tweets} Tweets</Text>
+        <Text className="bottom">{followers.toLocaleString()} Followers</Text>
         <FollowBtn
           className={isFollowing ? "following" : ""}
           onClick={() => change(id)}

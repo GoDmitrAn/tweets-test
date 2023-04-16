@@ -9,3 +9,16 @@ export const updateUser = async (user) => {
     console.error(error);
   }
 };
+export const loadUsers = async (page) => {
+  try {
+    const response = await axios("/users", {
+      params: {
+        page: page,
+        limit: 9,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
