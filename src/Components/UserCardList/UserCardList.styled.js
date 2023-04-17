@@ -34,15 +34,26 @@ export const LoadMoreBtn = styled.button`
     color: #5736a3;
   }
   &.backBtn {
-    padding: 5px 20px;
+    padding: 2px 20px;
+    margin: 0;
     margin-left: 0;
     margin-bottom: 0;
-    width: auto;
+    width: 72px;
     font-size: 2em;
     display: flex;
   }
 `;
 export const TopPanel = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
+`;
+export const LoadText = styled.p`
+  margin: 0;
+  font-family: "Montserrat";
+  text-align: center;
+  font-weight: 500;
+  font-size: 24px;
+  text-transform: capitalize;
+  color: #373737;
 `;

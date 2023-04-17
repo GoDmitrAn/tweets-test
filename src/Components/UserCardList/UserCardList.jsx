@@ -6,17 +6,21 @@ import {
   CardList,
   CardListItem,
   LoadMoreBtn,
+  LoadText,
   TopPanel,
 } from "./UserCardList.styled";
 import { loadUsers, updateUser } from "api/api";
 import { IoMdArrowRoundBack } from "react-icons/io";
-import { Text } from "Components/UserCard/UserCard.styled";
+// import { Text } from "Components/UserCard/UserCard.styled";
+import { Dropdown } from "Components/DropDown/DropDown";
 
 export const UserCardList = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [userList, setUserList] = useState([]);
   const [page, setPage] = useState(1);
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(true);
+
+  const [filter, setFilter] = useState("ALL");
 
   useEffect(() => {
     setIsLoading(true);
@@ -34,20 +38,35 @@ export const UserCardList = () => {
 
         localStorage.setItem("cards", JSON.stringify(response.data));
         setUserList(JSON.parse(localStorage.getItem("cards")));
+        setIsLoading(false);
       } catch (error) {
         console.log(error);
       }
     }
     if (!cards) {
       fetchUsers();
+    } else {
+      setUserList(JSON.parse(localStorage.getItem("cards")) || []);
+      setIsLoading(false);
     }
-    setUserList(JSON.parse(localStorage.getItem("cards")) || []);
-    setIsLoading(false);
+
     return () => {
       controller.abort();
     };
   }, []);
 
+  function filteredList(value) {
+    switch (value) {
+      case "ALL":
+        return userList;
+      case "FOLLOW":
+        return userList.filter((user) => user.isFollowing === false);
+      case "FOLLOWINGS":
+        return userList.filter((user) => user.isFollowing === true);
+      default:
+        return userList;
+    }
+  }
   function subscribeChange(id) {
     const index = userList.findIndex((user) => user.id === id);
     const user = userList.find((user) => user.id === id);
@@ -86,11 +105,17 @@ export const UserCardList = () => {
         >
           <IoMdArrowRoundBack />
         </LoadMoreBtn>
+        {isLoading && <LoadText>Loading ....</LoadText>}
+        <Dropdown
+          options={["ALL", "FOLLOW", "FOLLOWINGS"]}
+          value={filter}
+          onChange={setFilter}
+        />
       </TopPanel>
-      {isLoading && <Text className="loading">Loading ....</Text>}
+
       <CardList>
         {userList &&
-          userList.map((user) => {
+          filteredList(filter).map((user) => {
             return (
               <CardListItem key={user.id}>
                 <UserCard
