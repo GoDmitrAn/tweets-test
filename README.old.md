@@ -1,11 +1,29 @@
 # Інтерактивні картки твітів
 
-Створені за допомогою програми [Create React App](https://github.com/facebook/create-react-app).
+Фронтенд створено за допомогою програми [Create React App](https://github.com/facebook/create-react-app) і бекенд за допомогою UI-сервісу [mockapi.io](https://mockapi.io/).
 
 ![screenshot](https://github.com/GoDmitrAn/tweets-test/blob/main/screen.jpg)
-## [Demo](https://godmitran.github.io/tweets-test)
+
+## |[Demo](https://godmitran.github.io/tweets-test)|
+
+За бажанням користувач додає твіти до підписки. Також реалізована фільтрація твітів.
 
 ## Доступні скрипти
 
 У каталозі проекту ви можете запустити:
+
 ### `npm start`
+
+Запускає програму в режимі розробки.
+Відкрийте [http://localhost:3000](http://localhost:3000), щоб переглянути його у своєму браузері.
+Сторінка перезавантажиться, коли ви внесете зміни.
+Ви також можете побачити помилки у консолі.
+
+### `npm test`
+
+Запускає програму тестування в режимі інтерактивного годинника.
+
+### `npm run build`
+
+Створює програму для виробництва в buildпапці.
+Він правильно поєднує React у робочому режимі та оптимізує збірку для найкращої продуктивності.
