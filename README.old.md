@@ -4,7 +4,7 @@
 
 ![screenshot](https://github.com/GoDmitrAn/tweets-test/blob/main/screen.jpg)
 
-[Demo](godmitran.github.io/tweets-test/)
+[Demo](https://godmitran.github.io/tweets-test/tweets)
 
 ## Доступні скрипти
 
