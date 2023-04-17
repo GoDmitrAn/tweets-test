@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import React, { useState } from "react";
 import { MainBox, ToggleBtn, DropMenu, DropMenuItem } from "./DropDown.styled";
 
@@ -26,4 +28,9 @@ export const Dropdown = ({ options, value, onChange }) => {
       )}
     </MainBox>
   );
+};
+Dropdown.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  workDays: PropTypes.arrayOf(PropTypes.string),
 };

@@ -11,7 +11,6 @@ import {
 } from "./UserCardList.styled";
 import { loadUsers, updateUser } from "api/api";
 import { IoMdArrowRoundBack } from "react-icons/io";
-// import { Text } from "Components/UserCard/UserCard.styled";
 import { Dropdown } from "Components/DropDown/DropDown";
 
 export const UserCardList = () => {

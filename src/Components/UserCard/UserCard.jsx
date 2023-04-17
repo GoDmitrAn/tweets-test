@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import {
   MiddleBox,
   BottomBox,
@@ -47,4 +48,13 @@ export const UserCard = ({
       </BottomBox>
     </MainBox>
   );
+};
+
+UserCard.propTypes = {
+  tweets: PropTypes.number,
+  followers: PropTypes.number,
+  id: PropTypes.string,
+  avatar: PropTypes.string,
+  isFollowing: PropTypes.bool,
+  change: PropTypes.func,
 };
