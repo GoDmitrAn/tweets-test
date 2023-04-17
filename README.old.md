@@ -6,6 +6,9 @@
 
 |**[Demo](https://godmitran.github.io/tweets-test)**|
 <p align="center"><a href="https://godmitran.github.io/tweets-test" font-weight="700">Demo</a></p>
+<center>
+**[Demo](https://godmitran.github.io/tweets-test)**<sup><sub><sup><font size="2">_html_</font></sup></sub></sup>
+</center>
 
 За бажанням користувач додає твіти до підписки. Також реалізована фільтрація твітів.
 
