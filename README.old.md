@@ -3,11 +3,8 @@
 Фронтенд створено за допомогою програми [Create React App](https://github.com/facebook/create-react-app) і бекенд за допомогою UI-сервісу [mockapi.io](https://mockapi.io/).
 
 ![screenshot](https://github.com/GoDmitrAn/tweets-test/blob/main/screen.jpg)
-
-|**[Demo](https://godmitran.github.io/tweets-test)**|
-
 <p align="center">
-  <a href="https://godmitran.github.io/tweets-test"><b>Demo</b></a>
+  <a href="https://godmitran.github.io/tweets-test" style="font-size: 18px;"><b>Demo</b></a>
 </p>
 За бажанням користувач додає твіти до підписки. Також реалізована фільтрація твітів.
 
