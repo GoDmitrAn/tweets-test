@@ -6,12 +6,9 @@
 
 |**[Demo](https://godmitran.github.io/tweets-test)**|
 
-
-|:--------------------------------------------------:|
-|**[Demo](https://godmitran.github.io/tweets-test)** |
-|:--------------------------------------------------:|
-
-
+<p align="center">
+  <a href="[https://www.example.com](https://godmitran.github.io/tweets-test)"><b>Demo</b></a>
+</p>
 За бажанням користувач додає твіти до підписки. Також реалізована фільтрація твітів.
 
 ## Доступні скрипти
