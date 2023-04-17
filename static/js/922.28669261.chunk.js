@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunktweets_test=self.webpackChunktweets_test||[]).push([[922],{922:function(e,t,n){n.r(t);var s=n(184);t.default=function(){return(0,s.jsxs)("main",{style:{textAlign:"center"},children:[(0,s.jsx)("b",{style:{fontSize:64},children:"404"}),(0,s.jsx)("p",{children:"Sorry, we couldn't find that page :("})]})}}}]);
-//# sourceMappingURL=922.28669261.chunk.js.map
