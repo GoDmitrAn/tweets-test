@@ -5,6 +5,7 @@
 ![screenshot](https://github.com/GoDmitrAn/tweets-test/blob/main/screen.jpg)
 
 |**[Demo](https://godmitran.github.io/tweets-test)**|
+<p align="center"><a href="https://godmitran.github.io/tweets-test">Demo</a></p>
 
 За бажанням користувач додає твіти до підписки. Також реалізована фільтрація твітів.
 
