@@ -7,14 +7,14 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/GoDmitrAn/tweets-test)
 
 Фронтенд створено за допомогою програми [Create React App](https://github.com/facebook/create-react-app) і бекенд за допомогою UI-сервісу [mockapi.io](https://mockapi.io/).
-
+За бажанням користувач додає твіти до підписки. Також реалізована фільтрація твітів.
 ![screenshot](https://github.com/GoDmitrAn/tweets-test/blob/main/screen.jpg)
 
 <p align="center">
   <a href="https://godmitran.github.io/tweets-test" style="font-size: 18px"><b>Demo</b></a>
 </p>
 
-За бажанням користувач додає твіти до підписки. Також реалізована фільтрація твітів.
+
 
 ## Доступні скрипти
 
